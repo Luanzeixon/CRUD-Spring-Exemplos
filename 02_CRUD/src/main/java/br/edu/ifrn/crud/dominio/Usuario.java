@@ -7,7 +7,7 @@ public class Usuario {
 	private String email;
 	private String senha;
 	private String sexo;
-	private String profissão;
+	private String profissao;
 	
 	public int getId() {
 		return id;
@@ -39,11 +39,11 @@ public class Usuario {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
-	public String getProfissão() {
-		return profissão;
+	public String getProfissao() {
+		return profissao;
 	}
-	public void setProfissão(String profissão) {
-		this.profissão = profissão;
+	public void setProfissao(String profissão) {
+		this.profissao = profissão;
 	}
 	
 }
