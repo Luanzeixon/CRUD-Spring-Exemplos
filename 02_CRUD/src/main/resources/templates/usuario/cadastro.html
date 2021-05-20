@@ -13,6 +13,15 @@
 
 	<h1>Cadastro de Usuario</h1>
 	
+	<div th:if="${msgSucesso} != null "> <!-- so vai aparecer a div SE tiver a variavel msgSucesso -->
+		<b th:text="${msgSucesso}" style="color: blue;"></b>
+		<br/><br/>
+	</div>
+	<div th:if="${msgErro} != null "> <!-- so vai aparecer a div SE tiver a variavel msgSucesso -->
+		<b th:text="${msgErro}" style="color: red;"></b>
+		<br/><br/>
+	</div>
+	
 	<form th:action="@{/usuarios/salvar}" th:object="${usuario}" 
 	method="post" > <!-- "@" se refere a chamar uma url, e $ para acessar uma variavel,no caso o th:object diz que eu estou cadastrando um objeto de uma classe atrabes do formulario(tem que especificar no controller) --> 
 	
