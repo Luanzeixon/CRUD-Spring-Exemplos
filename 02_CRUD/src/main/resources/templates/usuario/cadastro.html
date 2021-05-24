@@ -25,6 +25,8 @@
 	<form th:action="@{/usuarios/salvar}" th:object="${usuario}" 
 	method="post" > <!-- "@" se refere a chamar uma url, e $ para acessar uma variavel,no caso o th:object diz que eu estou cadastrando um objeto de uma classe atrabes do formulario(tem que especificar no controller) --> 
 	
+	<input type="hidden" th:field="${usuario.id}"/> <!-- Pra maneter o id do usuario -->
+	
 	<table>
 		<tr>
 			<td>Nome:</td>
@@ -66,7 +68,8 @@
 		<tr>
 			<td></td>
 			<td>
-				<input type="submit" value="Cadastrar">
+			<!-- Se o id do usuario for igual a 0 (? é uma pergunta) coloque Cadastrar se nao coloque Editar -->
+				<input type="submit" th:value="${usuario.id} == 0 ? Cadastrar : Editar">
 				<input type="submit" value="Cancelar" formaction="/" formmethod="get">
 			</td>
 		</tr>

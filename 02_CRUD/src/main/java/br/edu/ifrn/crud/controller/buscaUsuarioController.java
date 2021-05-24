@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -34,6 +35,7 @@ public class buscaUsuarioController {
 			ModelMap model
 			// required = false: para que seja opcional a informação do parametro, se nao tiver isso da erro se nao informar
 			) {
+		
 		//Obtém a lista com TODOS os usuarios cadastrados em memoria:
 		
 		List<Usuario> usuariosCadastrados = 
@@ -70,4 +72,5 @@ public class buscaUsuarioController {
 		
 		return "usuario/busca";
 	}
+	
 }
