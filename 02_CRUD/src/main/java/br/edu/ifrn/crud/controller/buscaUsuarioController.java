@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.edu.ifrn.crud.dominio.Usuario;
 
@@ -71,6 +72,31 @@ public class buscaUsuarioController {
 		}
 		
 		return "usuario/busca";
+	}
+	
+	@SuppressWarnings("unchecked")
+	@GetMapping("/remover/{id}") 
+	public String iniciarRemoção(	
+			@PathVariable("id") Integer idUsuario, 
+			HttpSession sessao, RedirectAttributes attr 
+			) {
+		
+		List<Usuario> usuariosCadastrados = 
+				(List<Usuario>) sessao.getAttribute("usuariosCadastrados");
+		
+		Usuario u = new Usuario(); //representa o mesmo usuario que quero remover
+		u.setId(idUsuario);
+		
+		// so consegue remover graças a o hasCode e ao Equals(classe usuario, pois o id de "u" é igual ao que quer remover)
+		boolean removeu = usuariosCadastrados.remove(u);
+		
+		if(removeu) {
+			attr.addFlashAttribute("msgSucesso", "Usuário removido com sucesso!");
+		}else {
+			attr.addFlashAttribute("msgErro", "Não foi possivel remover o usuário");
+		}
+			
+		return "redirect:/usuarios/buscar";
 	}
 	
 }

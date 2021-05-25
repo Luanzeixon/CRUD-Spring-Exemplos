@@ -63,7 +63,7 @@ public class cadastroUsuarioController {
 			attr.addFlashAttribute("msgSucesso", "Usuario Editado com sucesso!");
 		}
 		
-		return "redirect:/usuarios/cadastro"; //usar redirect na url usuarios, para "apagar" os contatos salvos do form (tem que colocar /)
+		return "redirect:/usuarios/cadastro"; //usar redirect na url usuarios, para "apagar"(atualizar) os contatos salvos do form (tem que colocar /)
 	}
 	
 	@SuppressWarnings("unchecked")

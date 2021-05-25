@@ -66,11 +66,14 @@
 				<td th:text="${u.sexo}" th:if="${mostrarTodosDados} == true"></td>
 				<td th:text="${u.profissao}" th:if="${mostrarTodosDados} == true"></td>
 				<td>
-					<a th:href="'/usuarios/editar/' + ${u.id}">
+					<a th:href="'/usuarios/editar/' + ${u.id}"> <!-- Simbolo de "+" esta comcatenando com a outra parte-->
 						Editar  
 					</a>
-					
-					Remover
+					<a th:href="'/usuarios/remover/' + ${u.id}"
+					onclick="if(!confirm('Deseja realmente remover o usuário?')) return false; "> <!-- Confirm pergunta o usuario algo e ele tem que responder sim ou nao, no caso ai se nao confirmar(!conform) -->
+						<!-- return false para cancelar a ação de remover -->
+						Remover
+					</a>
 				</td>
 			</tr>
 		</table>
